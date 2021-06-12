@@ -61,8 +61,8 @@ function displaySelectedBtn() {
 displayableBtns.forEach(dispBtn => dispBtn.addEventListener("click", displaySelectedBtn));
 
 operatorBtns.forEach(operatorBtn => operatorBtn.addEventListener("click", function() {
-    const num = Number(displayHTML.textContent);
-    
+    const num = (displayHTML.textContent !== "") ? Number(displayHTML.textContent) : NaN;
+
     // check validity of current display to be added
     if (!Number.isNaN(num) && !operatorBefore) {
         memory.push(num);
@@ -121,9 +121,29 @@ deleteBtn.addEventListener("click", function() {
     displayHTML.textContent = displayHTML.textContent.slice(0, -1);
 });
 
-// bug: when doing 9 + *, its stored as 9 + 
-
-// clean up code for displayButton and operatorButton?
 // keyboard support
-// work on animations for buttons
+window.addEventListener("keydown", function(e) {
+    let key;
+    switch (e.key) {
+        case "*":
+            key = "x";
+            break;
+        case "/":
+            key = "÷";
+            break;
+        case "Escape":
+            key = "Clear";
+            break;
+        case "Backspace":
+            key = "Delete";
+            break;
+        default:
+            key = e.key;
+    }
+    const selectedBtn = (/[ClearDelete=0-9.+-x÷]/.test(key)) ? btns.find(btn => btn.textContent === key) : null;
+    if (selectedBtn) {
+        selectedBtn.click();
+    }
+});
 
+// work on instructions section

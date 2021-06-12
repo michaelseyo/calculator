@@ -5,13 +5,27 @@
         <title>Calculator</title>
     </head>
     <body>
+        <section>
+            <h1>Calculator</h1>
+            <details>
+                <p>Keyboard support is available!</p>
+                <p>Special characters:</p>
+                <ul>
+                    <li>Clear: Esc</li>
+                    <li>Delete: Backspace</li>
+                    <li>Multiply: *</li>
+                    <li>Divide: /</li>
+                </ul>
+            </details>
+        </section>
+
         <div class='calculator-container'>
             <div class='display'>
                 <span></span>
             </div>
             <nav class='buttons-container'>
-                <button id='misc'>Clear</button>
-                <button id='misc'>Delete</button>
+                <button id='clear'>Clear</button>
+                <button id='delete'>Delete</button>
                 <button>9</button>
                 <button>8</button>
                 <button>7</button>
@@ -23,10 +37,10 @@
                 <button>1</button>
                 <button>0</button>
                 <button>.</button>
-                <button>+</button>
-                <button>-</button>
-                <button>x</button>
-                <button>÷</button>
+                <button id='add'>+</button>
+                <button id='subtract'>-</button>
+                <button id='multiply'>x</button>
+                <button id='divide'>÷</button>
                 <button>=</button>
             </nav>
         </div>

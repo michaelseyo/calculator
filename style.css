@@ -2,15 +2,28 @@ body {
     background-color:rgb(255, 235, 208);
 }
 
+section {
+    text-align: center;
+}
+
+details {
+    font-size: 20px;
+}
+
+details p {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+details ul li {
+    list-style: none;
+}
+
 .calculator-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    height: 520px;
-    width: 340px;
-
     border: 3px solid black;
     border-radius: 20px;
     background-color:rgb(100, 113, 136);
@@ -34,9 +47,15 @@ span {
 
 .buttons-container {
     display: grid;
-    place-items: center;
-    margin: 20px;
-    grid-template-columns: repeat(3, auto);
+    margin: 10px 20px 20px 20px;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(5, 60px);
+    grid-template-areas: 
+        "clr clr del del"
+        ".   .   . add"
+        ".   .   . subtract"
+        ".   .   . multiply"
+        ".   .   . divide"; /* can only make square/rectangle/line shape */
     grid-gap: 10px;
 }
 
@@ -44,18 +63,53 @@ button {
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    height: 50px;
-    width: 90px;
     border-style: none;
     border-radius: 20px;
     background-color: rgb(230, 230, 230);
 }
 
-#misc {
+button:active {
+    transform: scale(1.05);
+    transition-duration: 0.1s;
+}
+
+button:hover {
+    background-color: rgba(230, 230, 230, 0.9);
+    cursor: pointer;
+}
+
+button#clear {
+    grid-area: clr;
     font-size: 25px;
     background-color: rgb(255, 170, 80);
 }
 
-button:active {
-    transform: scale(1.1);
+button#clear:hover {
+    background-color: rgba(255, 170, 80, 0.90);
+}
+
+button#delete {
+    grid-area: del;
+    font-size: 25px;
+    background-color: rgb(255, 170, 80);
+}
+
+button#delete:hover {
+    background-color: rgba(255, 170, 80, 0.90);
+}
+
+button#add {
+    grid-area: add;
+}
+
+button#subtract {
+    grid-area: subtract;
+}
+
+button#multiply {
+    grid-area: multiply;
+}
+
+button#divide {
+    grid-area: divide;
 }
