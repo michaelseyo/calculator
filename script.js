@@ -58,6 +58,11 @@ function displaySelectedBtn() {
     }
 }
 
+// round to 7dp
+function roundNumber(num) {
+    return Math.round(num * 10000000) / 10000000;
+}
+
 displayableBtns.forEach(dispBtn => dispBtn.addEventListener("click", displaySelectedBtn));
 
 operatorBtns.forEach(operatorBtn => operatorBtn.addEventListener("click", function() {
@@ -70,7 +75,7 @@ operatorBtns.forEach(operatorBtn => operatorBtn.addEventListener("click", functi
     
     // to proceed with intermediate operations where memory = [num, operator, num]
     if (memory.length === 3) {
-        const result = operate(...memory);
+        const result = roundNumber(operate(...memory));
         displayHTML.textContent = result;
         memory.splice(0, memory.length); 
         memory.push(result);
@@ -104,7 +109,7 @@ equalBtn.addEventListener("click", function() {
         const error = checkDivisionByZero(finalNum);
         if (!error) {
             memory.push(finalNum);
-            const result = operate(...memory);
+            const result = roundNumber(operate(...memory));
             displayHTML.textContent = result;
             memory.splice(0, memory.length); 
             equalsBefore = true;
@@ -145,5 +150,3 @@ window.addEventListener("keydown", function(e) {
         selectedBtn.click();
     }
 });
-
-// work on instructions section
