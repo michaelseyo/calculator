@@ -1,0 +1,171 @@
+body {
+    background-color:rgb(255, 235, 208);
+}
+
+.main-container {
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.calculator-container {
+    /*
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    */
+    width: 350px;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-color:rgb(100, 113, 136);
+}
+
+.display {
+    text-align: right;
+    margin: 20px 20px;
+    padding: 20px 20px 5px 20px;
+    height: 80px;
+    background-color:rgb(230, 230, 230);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    letter-spacing: 0.08em;
+}
+
+.buttons-container {
+    display: grid;
+    margin: 10px 20px 20px 20px;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(5, 60px);
+    grid-template-areas: 
+        "clr clr del del"
+        ".   .   . add"
+        ".   .   . subtract"
+        ".   .   . multiply"
+        ".   .   . divide"; /* can only make square/rectangle/line shape */
+    grid-gap: 10px;
+}
+
+button {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    border-style: none;
+    border-radius: 20px;
+    background-color: rgb(230, 230, 230);
+}
+
+button:active {
+    transform: scale(1.05);
+    transition-duration: 0.1s;
+}
+
+button:hover {
+    background-color: rgba(230, 230, 230, 0.9);
+    cursor: pointer;
+}
+
+button#clear {
+    grid-area: clr;
+    font-size: 25px;
+    background-color: rgb(255, 170, 80);
+}
+
+button#clear:hover {
+    background-color: rgba(255, 170, 80, 0.90);
+}
+
+button#delete {
+    grid-area: del;
+    font-size: 25px;
+    background-color: rgb(255, 170, 80);
+}
+
+button#delete:hover {
+    background-color: rgba(255, 170, 80, 0.90);
+}
+
+button#add {
+    grid-area: add;
+}
+
+button#subtract {
+    grid-area: subtract;
+}
+
+button#multiply {
+    grid-area: multiply;
+}
+
+button#divide {
+    grid-area: divide;
+}
+
+.main-text-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.details-container {
+    width: 350px;
+    margin: 0 350px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(253, 242, 227);
+    border-radius: 20px;
+    user-select: none;
+}
+
+.details-container:hover {
+    box-shadow: 0 0 1px rgba(120, 120, 120, 0.3);
+    box-shadow: 0 2px 2px rgb(120, 120, 120,0.5);
+    box-shadow: 0 4px 4px rgb(120, 120, 120, 0.7);
+    box-shadow: 0 8px 8px rgb(120, 120, 120, 0.8);
+}
+
+details {
+    font-size: 25px;
+    text-align: center;
+}
+
+details:hover {
+    cursor: pointer;
+}
+
+p {
+    font-size: 20px;
+    line-height: 5px;
+}
+
+.button-grid-container {
+    display: grid;
+    size: auto;
+    grid-template-columns: 160px 160px;
+    grid-template-rows: auto auto;
+    grid-gap: 10px;
+}
+
+ul {
+    font-size: 20px;
+    text-align: left;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    list-style: none;
+}
+
+.resize-btn {
+    height: 60%;
+    width: 60%;
+}
