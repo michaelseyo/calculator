@@ -89,7 +89,6 @@ operatorBtns.forEach(operatorBtn => operatorBtn.addEventListener("click", functi
         memory.push(operator);
     }
     operatorBefore = true;
-    console.log(memory);
 }));
 
 // checks zero division error and changes display to error if so
